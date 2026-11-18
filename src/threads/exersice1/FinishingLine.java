@@ -7,7 +7,7 @@ public class FinishingLine {
 		finish = 0;
 	}
 	
-	public void arrive(Horse horse) {
+	public synchronized void arrive(Horse horse) {
 		if (finish == 0) {
 			System.out.println("************************************");
 			System.out.println(horse.getHorseName() + " finished first!");

@@ -20,16 +20,17 @@ public class HorseRace {
 		Horse h9 = new Horse("Nine", f, distance);
 		Horse h10 = new Horse("Ten", f, distance);
 		
-		h1.run();
-		h2.run();
-		h3.run();
-		h4.run();
-		h5.run();
-		h6.run();
-		h7.run();
-		h8.run();
-		h9.run();
-		h10.run();
+		h1.start();
+		h2.start();
+		h3.start();
+		h4.start();
+		h5.start();
+		h6.start();
+		h7.start();
+		h8.start();
+		h9.start();
+		h10.start();
+		
 		
 	}
 
