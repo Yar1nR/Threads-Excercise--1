@@ -12,13 +12,15 @@ public class FinishingLine {
 	// Synchronization ensures that horses are assigned
 	// finishing positions one at a time
 	public synchronized void arrive(Horse horse) {
-		if (finish == 0) {
-			System.out.println("************************************\n" +
-					horse.getHorseName() + " finished first!" +
-					"\n************************************");
-			finish++;
-		}
-		else
-			System.out.println("====> " + horse.getHorseName() + " finished on " + ++finish + "-th place");
+	    finish++;
+
+	    if (finish == 1) {
+	        String border = "*".repeat(31);
+	        System.out.printf("%s%n====> %s finished first!%n%s%n",
+	                border, horse.getHorseName(), border);
+	    } else {
+	        System.out.println("====> " + horse.getHorseName()
+	                + " finished on " + finish + "-th place");
+	    }
 	}
 }

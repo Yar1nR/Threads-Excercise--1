@@ -17,22 +17,28 @@ public class Horse extends Thread {
 	}
 	@Override
 	public void run() {
-		System.out.printf("%-15s %s%n", name + ":", distance + " Meters to finish");
-		// Run until the horse reaches the finishing line
-		while (distance > 0) {
-			try {
-				Thread.sleep(1000);
-			}
-			
-			catch (Exception e) {
-				System.out.println(e);
-			}
-			// Move the horse forward by a random distance between 1 and 20
-			distance = Math.max(0,(distance - ((int)(Math.random()*20)+1)));
-			System.out.printf("%-15s %s%n", name + ":", distance + " Meters to finish");
-		}
-		if (distance <= 0) 
-				f.arrive(this);
-		
-	}
-}
+	    final String distanceFormat = "%-11s%d meters to finish%n";
+	    System.out.printf(distanceFormat, name + ":", distance);
+
+	    while (distance > 0) {
+	        try {
+	            Thread.sleep(1000);
+	        } catch (InterruptedException e) {
+	            Thread.currentThread().interrupt();
+	            return;
+	        }
+
+	        int step = (int) (Math.random() * 20) + 1;
+	        if (step >= distance) {
+	            break;
+	        }
+
+	        distance -= step;
+	        System.out.printf(distanceFormat, name + ":", distance);
+	    }
+
+	    synchronized (f) {
+	        distance = 0;
+	        f.arrive(this);
+	    }
+	}}

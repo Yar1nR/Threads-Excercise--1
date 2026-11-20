@@ -9,7 +9,7 @@ public class HorseRace {
 		// TODO Auto-generated method stub
 		
 		Scanner input = new Scanner(System.in);
-		System.out.print("Enteer distance: ");
+		System.out.print("Enter distance: ");
 		int distance = input.nextInt();
 		FinishingLine f = new FinishingLine();
 		Horse h1 = new Horse("One", f, distance);
