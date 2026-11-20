@@ -1,5 +1,8 @@
+//Yarin Rozilyo, 206519928 | Atawna Belal, 326309770 
 package threads.exersice1;
 import java.util.Scanner;
+
+//Initializes and starts the horse race
 public class HorseRace {
 
 	public static void main(String[] args) {
@@ -20,6 +23,7 @@ public class HorseRace {
 		Horse h9 = new Horse("Nine", f, distance);
 		Horse h10 = new Horse("Ten", f, distance);
 		
+		// Start all horses in separate threads
 		h1.start();
 		h2.start();
 		h3.start();
