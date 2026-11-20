@@ -15,15 +15,17 @@ public class Horse extends Thread {
 	}
 	@Override
 	public void run() {
+		System.out.printf("%-15s %s%n", name + ":", distance + " Meters to finish");
 		while (distance > 0) {
 			try {
 				Thread.sleep(1000);
 			}
+			
 			catch (Exception e) {
 				System.out.println(e);
 			}
-			System.out.printf("%-15s %s%n", name + ":", distance + " Meters to finish");;
-			distance -= ((int)(Math.random()*20)+1);
+			distance = Math.max(0,(distance - ((int)(Math.random()*20)+1)));
+			System.out.printf("%-15s %s%n", name + ":", distance + " Meters to finish");
 		}
 		if (distance <= 0) 
 				f.arrive(this);

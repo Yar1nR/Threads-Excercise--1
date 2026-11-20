@@ -9,9 +9,9 @@ public class FinishingLine {
 	
 	public synchronized void arrive(Horse horse) {
 		if (finish == 0) {
-			System.out.println("************************************");
-			System.out.println(horse.getHorseName() + " finished first!");
-			System.out.println("************************************");
+			System.out.println("************************************\n" +
+					horse.getHorseName() + " finished first!" +
+					"\n************************************");
 			finish++;
 		}
 		else
